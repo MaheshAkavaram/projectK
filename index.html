@@ -33,18 +33,44 @@
             font-family: 'Outfit', sans-serif;
         }
 
+        /* Glassy Nav Styles */
         .nav-blur {
-            background: rgba(255, 255, 255, 0.95);
-            backdrop-filter: blur(12px);
-            border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+            background: transparent;
+            pointer-events: none; /* Allows scrolling behind the bar */
         }
 
-        .logo-main {
-            height: 100px;
-            width: 100px;
-            object-fit: cover;
-            border-radius: 50%;
+        .nav-container-inner {
+            pointer-events: auto;
+        }
+
+        .glass-nav-link {
+            background: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.4);
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+            padding: 0.75rem 1.25rem;
+            border-radius: 12px;
             transition: all 0.3s ease;
+        }
+
+        .glass-nav-link:hover {
+            background: rgba(255, 255, 255, 0.9);
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(197, 160, 89, 0.15);
+            border-color: var(--brand-gold);
+            color: var(--brand-gold) !important;
+        }
+
+        /* Circular Logo */
+        .logo-main {
+            height: 80px;
+            width: 80px;
+            object-fit: cover;
+            border-radius: 50%; /* Changed to circular */
+            transition: all 0.3s ease;
+            border: 3px solid white;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.1);
         }
 
         .hero-section {
@@ -76,7 +102,6 @@
             border-color: var(--brand-gold);
         }
 
-        /* Enhanced Hover for Workflow Steps */
         .step-card {
             transition: all 0.4s ease;
             border: 1px solid #f1f5f9;
@@ -128,7 +153,6 @@
 
         .whatsapp-float:hover { transform: scale(1.1); }
 
-        /* Mobile Menu Styles */
         #mobile-menu {
             transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
             transform: translateY(-100%);
@@ -159,49 +183,49 @@
         }
 
         @media (max-width: 768px) {
-            .logo-main { height: 70px; width: 70px; }
+            .logo-main { height: 60px; width: 60px; }
             h1 { font-size: 2.25rem !important; }
-            .nav-container { padding-left: 1.5rem !important; padding-right: 1.5rem !important; }
+            .nav-container { padding-left: 1rem !important; padding-right: 1rem !important; }
         }
     </style>
 </head>
 <body>
 
     <!-- Navigation -->
-    <nav class="fixed w-full z-[100] nav-blur">
-        <div class="container mx-auto px-16 md:px-6 h-24 md:h-28 flex justify-between items-center nav-container">
+    <nav class="fixed w-full z-[100] nav-blur pt-4">
+        <div class="container mx-auto px-4 md:px-6 h-24 flex justify-between items-center nav-container-inner">
             <div class="flex items-center gap-4">
-                <img src="img\log.jpg.jpeg" alt="Logo" class="logo-main shadow-lg">
+                <img src="img\log.jpg.jpeg" alt="Logo" class="logo-main">
             </div>
             
-            <!-- Desktop Links -->
-            <div class="hidden lg:flex gap-8 text-[11px] font-bold tracking-widest uppercase text-slate-600">
-                <a href="#features" class="hover:text-gold transition">Features</a>
-                <a href="#how-it-works" class="hover:text-gold transition">How It Works</a>
-                <a href="#testimonials" class="hover:text-gold transition">Success Stories</a>
-                <a href="#Our-Services" class="hover:text-gold transition">Our Service</a>
+            <!-- Desktop Links: Card Style Glassy Menu -->
+            <div class="hidden lg:flex gap-4 text-[10px] font-bold tracking-widest uppercase text-slate-700">
+                <a href="#features" class="glass-nav-link">Features</a>
+                <a href="#how-it-works" class="glass-nav-link">How It Works</a>
+                <a href="#testimonials" class="glass-nav-link">Success Stories</a>
+                <a href="#Our-Services" class="glass-nav-link">Our Service</a>
             </div>
 
             <div class="flex items-center gap-4">
-                <a href="https://forms.gle/MSpcJHs5vb8UkfJ1A" target="_blank" class="btn-gold px-5 py-2.5 rounded-full font-bold text-xs uppercase tracking-wider hidden sm:block">
+                <a href="https://forms.gle/MSpcJHs5vb8UkfJ1A" target="_blank" class="btn-gold px-6 py-3 rounded-full font-bold text-xs uppercase tracking-wider hidden sm:block shadow-lg">
                     Get Started
                 </a>
                 <!-- Hamburger Menu Button -->
-                <button id="menu-toggle" class="lg:hidden text-slate-900 text-2xl p-2 focus:outline-none">
+                <button id="menu-toggle" class="lg:hidden glass-nav-link text-slate-900 text-xl focus:outline-none">
                     <i class="fas fa-bars" id="menu-icon"></i>
                 </button>
             </div>
         </div>
 
         <!-- Mobile Menu Overlay -->
-        <div id="mobile-menu" class="fixed inset-0 top-24 md:top-28 bg-white/98 z-[90] flex flex-col items-center justify-start pt-12 lg:hidden">
-            <div class="flex flex-col gap-8 text-center">
-                <a href="#features" class="mobile-link text-xl font-bold tracking-widest uppercase text-slate-800">Features</a>
-                <a href="#how-it-works" class="mobile-link text-xl font-bold tracking-widest uppercase text-slate-800">How It Works</a>
-                <a href="#testimonials" class="mobile-link text-xl font-bold tracking-widest uppercase text-slate-800">Success Stories</a>
-                <a href="#Our-Services" class="mobile-link text-xl font-bold tracking-widest uppercase text-slate-800">Our Service</a>
+        <div id="mobile-menu" class="fixed inset-0 top-0 bg-white/95 backdrop-blur-md z-[90] flex flex-col items-center justify-center pt-12 lg:hidden">
+            <div class="flex flex-col gap-6 text-center w-full px-10">
+                <a href="#features" class="mobile-link text-xl font-bold tracking-widest uppercase text-slate-800 py-3">Features</a>
+                <a href="#how-it-works" class="mobile-link text-xl font-bold tracking-widest uppercase text-slate-800 py-3">How It Works</a>
+                <a href="#testimonials" class="mobile-link text-xl font-bold tracking-widest uppercase text-slate-800 py-3">Success Stories</a>
+                <a href="#Our-Services" class="mobile-link text-xl font-bold tracking-widest uppercase text-slate-800 py-3">Our Service</a>
                 <div class="pt-6">
-                    <a href="https://forms.gle/MSpcJHs5vb8UkfJ1A" target="_blank" class="btn-gold px-12 py-4 rounded-full font-bold text-lg uppercase tracking-widest">
+                    <a href="https://forms.gle/MSpcJHs5vb8UkfJ1A" target="_blank" class="btn-gold px-12 py-4 rounded-full font-bold text-lg uppercase tracking-widest inline-block">
                         Get Started
                     </a>
                 </div>
