@@ -40,10 +40,11 @@
         }
 
         .logo-main {
-            height: 120px;
-            width: 120px;
+            height: 100px;
+            width: 100px;
             object-fit: cover;
             border-radius: 50%;
+            transition: all 0.3s ease;
         }
 
         .hero-section {
@@ -127,36 +128,89 @@
 
         .whatsapp-float:hover { transform: scale(1.1); }
 
+        /* Mobile Menu Styles */
+        #mobile-menu {
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            transform: translateY(-100%);
+            opacity: 0;
+            pointer-events: none;
+        }
+        #mobile-menu.active {
+            transform: translateY(0);
+            opacity: 1;
+            pointer-events: all;
+        }
+        .mobile-link {
+            position: relative;
+            transition: color 0.3s ease;
+        }
+        .mobile-link::after {
+            content: '';
+            position: absolute;
+            bottom: -4px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--brand-gold);
+            transition: width 0.3s ease;
+        }
+        .mobile-link:hover::after {
+            width: 100%;
+        }
+
         @media (max-width: 768px) {
-            .logo-main { height: 40px; width: 40px; }
+            .logo-main { height: 70px; width: 70px; }
             h1 { font-size: 2.25rem !important; }
+            .nav-container { padding-left: 1.5rem !important; padding-right: 1.5rem !important; }
         }
     </style>
 </head>
 <body>
 
     <!-- Navigation -->
-    <nav class="fixed w-full z-50 nav-blur">
-        <div class="container mx-auto px-16 md:px-6 h-28 flex justify-between items-center">
+    <nav class="fixed w-full z-[100] nav-blur">
+        <div class="container mx-auto px-16 md:px-6 h-24 md:h-28 flex justify-between items-center nav-container">
             <div class="flex items-center gap-4">
-                <img src="img\log.jpg.jpeg" alt="Logo" class="logo-main">
+                <img src="img\log.jpg.jpeg" alt="Logo" class="logo-main shadow-lg">
             </div>
             
+            <!-- Desktop Links -->
             <div class="hidden lg:flex gap-8 text-[11px] font-bold tracking-widest uppercase text-slate-600">
                 <a href="#features" class="hover:text-gold transition">Features</a>
                 <a href="#how-it-works" class="hover:text-gold transition">How It Works</a>
-                <a href="#testimonials" class="hover:text-gold transition">Results</a>
+                <a href="#testimonials" class="hover:text-gold transition">Success Stories</a>
                 <a href="#Our-Services" class="hover:text-gold transition">Our Service</a>
             </div>
 
-            <a href="https://forms.gle/MSpcJHs5vb8UkfJ1A" target="_blank" class="btn-gold px-5 py-2.5 rounded-full font-bold text-xs uppercase tracking-wider">
-                Get Started
-            </a>
+            <div class="flex items-center gap-4">
+                <a href="https://forms.gle/MSpcJHs5vb8UkfJ1A" target="_blank" class="btn-gold px-5 py-2.5 rounded-full font-bold text-xs uppercase tracking-wider hidden sm:block">
+                    Get Started
+                </a>
+                <!-- Hamburger Menu Button -->
+                <button id="menu-toggle" class="lg:hidden text-slate-900 text-2xl p-2 focus:outline-none">
+                    <i class="fas fa-bars" id="menu-icon"></i>
+                </button>
+            </div>
+        </div>
+
+        <!-- Mobile Menu Overlay -->
+        <div id="mobile-menu" class="fixed inset-0 top-24 md:top-28 bg-white/98 z-[90] flex flex-col items-center justify-start pt-12 lg:hidden">
+            <div class="flex flex-col gap-8 text-center">
+                <a href="#features" class="mobile-link text-xl font-bold tracking-widest uppercase text-slate-800">Features</a>
+                <a href="#how-it-works" class="mobile-link text-xl font-bold tracking-widest uppercase text-slate-800">How It Works</a>
+                <a href="#testimonials" class="mobile-link text-xl font-bold tracking-widest uppercase text-slate-800">Success Stories</a>
+                <a href="#Our-Services" class="mobile-link text-xl font-bold tracking-widest uppercase text-slate-800">Our Service</a>
+                <div class="pt-6">
+                    <a href="https://forms.gle/MSpcJHs5vb8UkfJ1A" target="_blank" class="btn-gold px-12 py-4 rounded-full font-bold text-lg uppercase tracking-widest">
+                        Get Started
+                    </a>
+                </div>
+            </div>
         </div>
     </nav>
 
     <!-- Hero Section -->
-    <section class="hero-section pt-40 md:pt-48 pb-20 md:pb-32 px-6">
+    <section class="hero-section pt-44 md:pt-48 pb-20 md:pb-32 px-6">
         <div class="container mx-auto text-center">
             <div class="inline-block px-5 py-2 rounded-full bg-amber-50 border border-amber-100 text-amber-800 text-[10px] md:text-xs font-bold uppercase tracking-widest mb-8">
                 Premium Career Placement Service
@@ -237,7 +291,7 @@
         </div>
     </section>
 
-    <!-- Workflow Section (Enhanced Hover) -->
+    <!-- Workflow Section -->
     <section id="how-it-works" class="py-24 bg-slate-50 px-6">
         <div class="container mx-auto text-center mb-20">
             <h2 class="text-3xl md:text-4xl font-bold mb-4 text-slate-900">Professional <span class="text-gold">Workflow</span></h2>
@@ -275,7 +329,7 @@
         </div>
     </section>
 
-    <!-- Our Services (Enhanced Hover) -->
+    <!-- Our Services -->
     <section id="Our-Services" class="py-24 bg-white px-6">
         <div class="container mx-auto text-center mb-20">
             <h2 class="text-3xl md:text-4xl font-bold mb-4 text-slate-900">Premium <span class="text-gold">Services</span></h2>
@@ -308,7 +362,7 @@
     <!-- Testimonials -->
     <section id="testimonials" class="py-24 overflow-hidden bg-slate-50">
         <div class="container mx-auto px-6 mb-16 text-center">
-            <h2 class="text-3xl md:text-4xl font-bold mb-4 text-slate-900">Recent <span class="text-gold">Success</span></h2>
+            <h2 class="text-3xl md:text-4xl font-bold mb-4 text-slate-900">Recent Success<span class="text-gold"> Stories</span></h2>
         </div>
         
         <div class="testimonial-track gap-8 py-5">
@@ -316,7 +370,7 @@
                 <div class="glass-card p-10 rounded-3xl w-[320px] md:w-[450px] shrink-0">
                     <p class="text-slate-600 mb-8 italic leading-relaxed text-sm">"Career With Mahan helped me land my dream job in just 2 weeks! The team was professional and kept me updated throughout."</p>
                     <div class="flex items-center gap-4">
-                        <div class="w-12 h-12 rounded-full bg-slate-100 flex items-center justify-center font-bold text-navy">PS</div>
+                        <div class="w-12 h-12 rounded-full bg-slate-100 flex items-center justify-center font-bold text-navy">B</div>
                         <div>
                             <div class="font-bold text-slate-900">Bharathi</div>
                             <div class="text-xs text-gold font-bold uppercase tracking-wider">Software Engineer</div>
@@ -324,25 +378,35 @@
                     </div>
                 </div>
                 <div class="glass-card p-10 rounded-3xl w-[320px] md:w-[450px] shrink-0">
-                    <p class="text-slate-600 mb-8 italic leading-relaxed text-sm">"Amazed at the speed. The personalized approach made all the difference in getting my current role."</p>
+                    <p class="text-slate-600 mb-8 italic leading-relaxed text-sm">"It’s a 10/10!! Especially the resume editor which helps me very easily write the content to match the job description."</p>
                     <div class="flex items-center gap-4">
-                        <div class="w-12 h-12 rounded-full bg-slate-100 flex items-center justify-center font-bold text-navy">RV</div>
+                        <div class="w-12 h-12 rounded-full bg-slate-100 flex items-center justify-center font-bold text-navy">MM</div>
                         <div>
-                            <div class="font-bold text-slate-900">Nikith Neelishetty</div>
+                            <div class="font-bold text-slate-900">Mahesh M</div>
                             <div class="text-xs text-gold font-bold uppercase tracking-wider">Data Engineer</div>
                         </div>
                     </div>
                 </div>
+                <div class="glass-card p-10 rounded-3xl w-[320px] md:w-[450px] shrink-0">
+                    <p class="text-slate-600 mb-8 italic leading-relaxed text-sm">"I am able to find more relevant jobs faster, since using Career With Mahan I have tripled my interview rate."</p>
+                    <div class="flex items-center gap-4">
+                        <div class="w-12 h-12 rounded-full bg-slate-100 flex items-center justify-center font-bold text-navy">S</div>
+                        <div>
+                            <div class="font-bold text-slate-900">Sravya</div>
+                            <div class="text-xs text-gold font-bold uppercase tracking-wider">Java Full Stack Developer</div>
+                        </div>
+                    </div>
+                </div>
             </div>
-            <!-- Duplicate for loop -->
+            <!-- Duplicate for infinite effect -->
             <div class="flex gap-8">
                 <div class="glass-card p-10 rounded-3xl w-[320px] md:w-[450px] shrink-0">
-                    <p class="text-slate-600 mb-8 italic leading-relaxed text-sm">"The team took all the stress out of job hunting. Multiple offers in less than a month!"</p>
+                    <p class="text-slate-600 mb-8 italic leading-relaxed text-sm">"You must check out Career with mahan. It has been saving me hours in my job search!"</p>
                     <div class="flex items-center gap-4">
-                        <div class="w-12 h-12 rounded-full bg-slate-100 flex items-center justify-center font-bold text-navy">AP</div>
+                        <div class="w-12 h-12 rounded-full bg-slate-100 flex items-center justify-center font-bold text-navy">PS</div>
                         <div>
-                            <div class="font-bold text-slate-900">Nagendra Babu</div>
-                            <div class="text-xs text-gold font-bold uppercase tracking-wider">Data Analyst</div>
+                            <div class="font-bold text-slate-900">Mounika</div>
+                            <div class="text-xs text-gold font-bold uppercase tracking-wider">Data Engineer</div>
                         </div>
                     </div>
                 </div>
@@ -411,6 +475,28 @@
     </a>
 
     <script>
+        // Menu Toggle Logic
+        const menuBtn = document.getElementById('menu-toggle');
+        const mobileMenu = document.getElementById('mobile-menu');
+        const menuIcon = document.getElementById('menu-icon');
+
+        menuBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('active');
+            menuIcon.classList.toggle('fa-bars');
+            menuIcon.classList.toggle('fa-times');
+            document.body.classList.toggle('overflow-hidden');
+        });
+
+        // Close menu when clicking links
+        document.querySelectorAll('.mobile-link').forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.remove('active');
+                menuIcon.classList.add('fa-bars');
+                menuIcon.classList.remove('fa-times');
+                document.body.classList.remove('overflow-hidden');
+            });
+        });
+
         const countTo = (element) => {
             const target = parseInt(element.getAttribute('data-target'));
             let current = 0;
