@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Career With Mahan | Elite Job Application Service</title>
-    <!-- Replace with your own favicon URL -->
+    <!-- Favicon -->
     <link rel="icon" type="image/png" href="img\log.jpg.jpeg">
     
     <script src="https://cdn.tailwindcss.com"></script>
@@ -26,6 +26,7 @@
             background-color: var(--bg-slate);
             color: var(--text-main);
             scroll-behavior: smooth;
+            overflow-x: hidden;
         }
 
         h1, h2, h3, h4, .font-display {
@@ -33,9 +34,16 @@
         }
 
         .nav-blur {
-            background: rgba(255, 255, 255, 0.8);
+            background: rgba(255, 255, 255, 0.95);
             backdrop-filter: blur(12px);
             border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+        }
+
+        .logo-main {
+            height: 120px;
+            width: 120px;
+            object-fit: cover;
+            border-radius: 50%;
         }
 
         .hero-section {
@@ -58,14 +66,31 @@
         .glass-card {
             background: white;
             border: 1px solid rgba(0, 0, 0, 0.05);
-            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.02), 0 2px 4px -1px rgba(0, 0, 0, 0.01);
-            transition: all 0.4s ease;
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
         }
 
         .glass-card:hover {
-            transform: translateY(-8px);
-            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.05);
+            transform: translateY(-10px);
+            box-shadow: 0 25px 30px -10px rgba(0, 0, 0, 0.08);
             border-color: var(--brand-gold);
+        }
+
+        /* Enhanced Hover for Workflow Steps */
+        .step-card {
+            transition: all 0.4s ease;
+            border: 1px solid #f1f5f9;
+        }
+        .step-card:hover {
+            background: var(--brand-navy);
+            transform: translateY(-5px);
+        }
+        .step-card:hover h4, .step-card:hover p {
+            color: white;
+        }
+        .step-card:hover .icon-box {
+            background: var(--brand-gold);
+            color: white;
+            transform: scale(1.1);
         }
 
         .text-gold { color: var(--brand-gold); }
@@ -101,93 +126,89 @@
         }
 
         .whatsapp-float:hover { transform: scale(1.1); }
+
+        @media (max-width: 768px) {
+            .logo-main { height: 40px; width: 40px; }
+            h1 { font-size: 2.25rem !important; }
+        }
     </style>
 </head>
 <body>
 
     <!-- Navigation -->
     <nav class="fixed w-full z-50 nav-blur">
-        <div class="container mx-auto px-6 h-20 flex justify-between items-center">
-            <div class="flex items-center gap-3">
-                <!-- LOGO AREA: Replace src with your logo file -->
-                <img src="img\logo.png" alt="Career With Mahan" class="h-14 w-auto">
+        <div class="container mx-auto px-16 md:px-6 h-28 flex justify-between items-center">
+            <div class="flex items-center gap-4">
+                <img src="img\log.jpg.jpeg" alt="Logo" class="logo-main">
             </div>
             
-            <div class="hidden md:flex gap-10 text-sm font-semibold tracking-wide uppercase text-slate-600">
-                <a href="#features" class="hover:text-amber-700 transition">Features</a>
-                <a href="#how-it-works" class="hover:text-amber-700 transition">How It Works</a>
-                <a href="#testimonials" class="hover:text-amber-700 transition">Results</a>
-                <a href="#our-service" class="hover:text-amber-700 transition">Our Service</a>
+            <div class="hidden lg:flex gap-8 text-[11px] font-bold tracking-widest uppercase text-slate-600">
+                <a href="#features" class="hover:text-gold transition">Features</a>
+                <a href="#how-it-works" class="hover:text-gold transition">How It Works</a>
+                <a href="#testimonials" class="hover:text-gold transition">Results</a>
+                <a href="#Our-Services" class="hover:text-gold transition">Our Service</a>
             </div>
 
-            <a href="https://forms.gle/MSpcJHs5vb8UkfJ1A" target="_blank" class="btn-gold px-7 py-3 rounded-full font-bold text-sm uppercase tracking-wider">
+            <a href="https://forms.gle/MSpcJHs5vb8UkfJ1A" target="_blank" class="btn-gold px-5 py-2.5 rounded-full font-bold text-xs uppercase tracking-wider">
                 Get Started
             </a>
         </div>
     </nav>
 
     <!-- Hero Section -->
-    <section class="hero-section pt-48 pb-32 px-6">
+    <section class="hero-section pt-40 md:pt-48 pb-20 md:pb-32 px-6">
         <div class="container mx-auto text-center">
-            <div class="inline-block px-5 py-2 rounded-full bg-amber-50 border border-amber-100 text-amber-800 text-xs font-bold uppercase tracking-widest mb-8">
+            <div class="inline-block px-5 py-2 rounded-full bg-amber-50 border border-amber-100 text-amber-800 text-[10px] md:text-xs font-bold uppercase tracking-widest mb-8">
                 Premium Career Placement Service
             </div>
-            <h1 class="text-5xl md:text-7xl font-bold mb-8 text-slate-900 leading-[1.1] tracking-tight">
+            <h1 class="text-4xl md:text-7xl font-bold mb-8 text-slate-900 leading-[1.2] md:leading-[1.1] tracking-tight">
                 Land Your Dream Job <br><span class="text-gold">10x Faster</span> with Our Experts.
             </h1>
-            <p class="text-slate-500 text-lg md:text-xl max-w-3xl mx-auto mb-12 leading-relaxed">
+            <p class="text-slate-500 text-base md:text-xl max-w-3xl mx-auto mb-12 leading-relaxed px-4">
                 We handle the heavy lifting. Our specialized team identifies, tailors, and submits high-intent applications on your behalf until your contract is signed.
             </p>
             
-            <div class="flex flex-col sm:flex-row justify-center gap-5">
-                <a href="https://forms.gle/MSpcJHs5vb8UkfJ1A" target="_blank" class="btn-gold px-12 py-5 rounded-full font-bold text-lg flex items-center justify-center gap-3">
+            <div class="flex flex-col sm:flex-row justify-center gap-4 px-4">
+                <a href="https://forms.gle/MSpcJHs5vb8UkfJ1A" target="_blank" class="btn-gold px-10 md:px-12 py-4 md:py-5 rounded-full font-bold text-base md:text-lg flex items-center justify-center gap-3">
                     Submit Profile <i class="fas fa-arrow-right text-sm"></i>
                 </a>
-                <a href="https://api.whatsapp.com/send?phone=9550079348&text=Hello%20I'm interested,%20in%20Mahan.%20to%20discuss%20the%20expert%20job%20assistance%20program." target="_blank" class="bg-white border border-slate-200 px-12 py-5 rounded-full font-bold text-lg text-slate-800 flex items-center justify-center gap-3 hover:bg-slate-50 transition">
+                <a href="https://api.whatsapp.com/send?phone=9550079348&text=Hello%20Mahan,%20I'm%20interested%20in%20the%20expert%20job%20assistance%20program." target="_blank" class="bg-white border border-slate-200 px-10 md:px-12 py-4 md:py-5 rounded-full font-bold text-base md:text-lg text-slate-800 flex items-center justify-center gap-3 hover:bg-slate-50 transition">
                     Schedule Demo <i class="fab fa-whatsapp text-green-500"></i>
                 </a>
-            </div>
-            <div class="mt-20 flex flex-wrap justify-center gap-12 opacity-50 grayscale">
-                <img src="https://via.placeholder.com/120x40?text=FORTUNE+500" alt="Partner">
-                <img src="https://via.placeholder.com/120x40?text=TECH+GIANTS" alt="Partner">
-                <img src="https://via.placeholder.com/120x40?text=STARTUPS" alt="Partner">
             </div>
         </div>
     </section>
 
     <!-- Stats Section -->
-    <section class="py-20 bg-navy text-white">
+    <section class="py-16 bg-navy text-white">
         <div class="container mx-auto px-6">
-            <div class="grid grid-cols-2 lg:grid-cols-4 gap-10">
-                <div class="text-center border-r border-slate-700 last:border-0">
-                    <div class="text-4xl font-bold mb-2 rolling-number" data-target="1000">0</div>
-                    <div class="text-amber-500 text-xs font-bold uppercase tracking-widest">Applications Sent</div>
+            <div class="grid grid-cols-2 lg:grid-cols-4 gap-8">
+                <div class="text-center md:border-r border-slate-700 last:border-0">
+                    <div class="text-3xl md:text-4xl font-bold mb-2 rolling-number" data-target="1000">0</div>
+                    <div class="text-amber-500 text-[10px] uppercase tracking-widest font-bold">Applications Sent</div>
                 </div>
-                <div class="text-center border-r border-slate-700 last:border-0">
-                    <div class="text-4xl font-bold mb-2 rolling-number" data-target="95">0</div>
-                    <div class="text-amber-500 text-xs font-bold uppercase tracking-widest">Success Rate</div>
+                <div class="text-center lg:border-r border-slate-700">
+                    <div class="text-3xl md:text-4xl font-bold mb-2 rolling-number" data-target="95">0</div>
+                    <div class="text-amber-500 text-[10px] uppercase tracking-widest font-bold">Success Rate</div>
                 </div>
-                <div class="text-center border-r border-slate-700 last:border-0">
-                    <div class="text-4xl font-bold mb-2 rolling-number" data-target="24">0</div>
-                    <div class="text-amber-500 text-xs font-bold uppercase tracking-widest">Support Hours</div>
+                <div class="text-center md:border-r border-slate-700 last:border-0">
+                    <div class="text-3xl md:text-4xl font-bold mb-2 rolling-number" data-target="24">0</div>
+                    <div class="text-amber-500 text-[10px] uppercase tracking-widest font-bold">Support Hours</div>
                 </div>
-                <div class="text-center border-r border-slate-700 last:border-0">
-                    <div class="text-4xl font-bold mb-2 rolling-number" data-target="50">0</div>
-                    <div class="text-amber-500 text-xs font-bold uppercase tracking-widest">Hires Confirmed</div>
+                <div class="text-center last:border-0">
+                    <div class="text-3xl md:text-4xl font-bold mb-2 rolling-number" data-target="50">0</div>
+                    <div class="text-amber-500 text-[10px] uppercase tracking-widest font-bold">Hires Confirmed</div>
                 </div>
             </div>
         </div>
     </section>
 
     <!-- Features -->
-    <section id="features" class="py-32 px-6 bg-white">
+    <section id="features" class="py-24 px-6 bg-white">
         <div class="container mx-auto">
-            <div class="flex flex-col md:flex-row justify-between items-end mb-16 gap-6">
-                <div class="max-w-xl text-left">
-                    <h2 class="text-4xl font-bold mb-4 text-slate-900">Precision Engineered <br>Career Growth</h2>
-                    <p class="text-slate-500">We don't just apply; we strategically position you as the top 1% candidate for every role.</p>
-                </div>
-                <div class="text-gold font-bold">See all features <i class="fas fa-chevron-right ml-2"></i></div>
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-bold mb-4 text-slate-900">Precision Engineered Growth</h2>
+                <p class="text-slate-500">We don't just apply; we strategically position you as a top 1% candidate.</p>
             </div>
 
             <div class="grid md:grid-cols-3 gap-8">
@@ -196,68 +217,104 @@
                         <i class="fas fa-bullseye text-2xl"></i>
                     </div>
                     <h3 class="text-xl font-bold mb-4">Strategic Matching</h3>
-                    <p class="text-slate-500 text-sm leading-relaxed">Our experts analyze your profile to match you with roles that guarantee the highest conversion rates and salary packages.</p>
+                    <p class="text-slate-500 text-sm leading-relaxed">We match you with roles that guarantee the highest conversion rates and salary packages.</p>
                 </div>
                 <div class="glass-card p-10 rounded-2xl">
                     <div class="w-14 h-14 bg-amber-50 rounded-xl flex items-center justify-center text-gold mb-8">
                         <i class="fas fa-pen-fancy text-2xl"></i>
                     </div>
-                    <h3 class="text-xl font-bold mb-4">Smart Resume Tailoring</h3>
-                    <p class="text-slate-500 text-sm leading-relaxed">Every application is sent with a resume customized for that specific job description, ensuring you pass every ATS filter.</p>
+                    <h3 class="text-xl font-bold mb-4">Resume Tailoring</h3>
+                    <p class="text-slate-500 text-sm leading-relaxed">Every application features a customized resume to ensure you pass through every ATS filter.</p>
                 </div>
                 <div class="glass-card p-10 rounded-2xl">
                     <div class="w-14 h-14 bg-amber-50 rounded-xl flex items-center justify-center text-gold mb-8">
                         <i class="fas fa-user-shield text-2xl"></i>
                     </div>
                     <h3 class="text-xl font-bold mb-4">Privacy & Security</h3>
-                    <p class="text-slate-500 text-sm leading-relaxed">Your data is handled with military-grade encryption. We never share your credentials or information with third parties.</p>
+                    <p class="text-slate-500 text-sm leading-relaxed">Your data is handled with strict confidentiality. We never share your credentials.</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- How It Works -->
-    <section id="how-it-works" class="py-32 bg-slate-50 px-6">
+    <!-- Workflow Section (Enhanced Hover) -->
+    <section id="how-it-works" class="py-24 bg-slate-50 px-6">
         <div class="container mx-auto text-center mb-20">
-            <h2 class="text-4xl font-bold mb-4 text-slate-900">Our Professional <span class="text-gold">Workflow</span></h2>
-            <p class="text-slate-500 max-w-2xl mx-auto">From registration to joining letter, we manage the entire lifecycle.</p>
+            <h2 class="text-3xl md:text-4xl font-bold mb-4 text-slate-900">Professional <span class="text-gold">Workflow</span></h2>
+            <p class="text-slate-500 max-w-2xl mx-auto">A seamless lifecycle from application to job offer.</p>
         </div>
-        <div class="container mx-auto grid md:grid-cols-4 gap-4">
-            <div class="p-8 bg-white border border-slate-100 rounded-3xl relative overflow-hidden group">
-                <span class="absolute -right-4 -top-4 text-9xl font-black text-slate-50 opacity-5 group-hover:opacity-10 transition">1</span>
-                <h4 class="font-bold text-lg mb-3 relative">Onboarding</h4>
-                <p class="text-slate-500 text-sm relative">Submit your details and career aspirations through our secure Google Form portal.</p>
+        <div class="container mx-auto grid sm:grid-cols-2 md:grid-cols-4 gap-6">
+            <div class="step-card p-8 bg-white rounded-3xl relative overflow-hidden group">
+                <div class="w-12 h-12 bg-slate-50 rounded-lg flex items-center justify-center text-gold mb-6 icon-box">
+                    <i class="fas fa-user-plus"></i>
+                </div>
+                <h4 class="font-bold text-lg mb-3">Onboarding</h4>
+                <p class="text-slate-500 text-sm leading-relaxed">Submit your profile via our secure registration portal.</p>
             </div>
-            <div class="p-8 bg-white border border-slate-100 rounded-3xl relative overflow-hidden group">
-                <span class="absolute -right-4 -top-4 text-9xl font-black text-slate-50 opacity-5 group-hover:opacity-10 transition">2</span>
-                <h4 class="font-bold text-lg mb-3 relative">Curation</h4>
-                <p class="text-slate-500 text-sm relative">Our experts scan the market and curate high-value roles matching your exact skill set.</p>
+            <div class="step-card p-8 bg-white rounded-3xl relative overflow-hidden group">
+                <div class="w-12 h-12 bg-slate-50 rounded-lg flex items-center justify-center text-gold mb-6 icon-box">
+                    <i class="fas fa-filter"></i>
+                </div>
+                <h4 class="font-bold text-lg mb-3">Curation</h4>
+                <p class="text-slate-500 text-sm leading-relaxed">Our experts identify the best high-value roles for you.</p>
             </div>
-            <div class="p-8 bg-white border border-slate-100 rounded-3xl relative overflow-hidden group">
-                <span class="absolute -right-4 -top-4 text-9xl font-black text-slate-50 opacity-5 group-hover:opacity-10 transition">3</span>
-                <h4 class="font-bold text-lg mb-3 relative">Execution</h4>
-                <p class="text-slate-500 text-sm relative">We submit applications with tailored resumes and cover letters across multiple platforms.</p>
+            <div class="step-card p-8 bg-white rounded-3xl relative overflow-hidden group">
+                <div class="w-12 h-12 bg-slate-50 rounded-lg flex items-center justify-center text-gold mb-6 icon-box">
+                    <i class="fas fa-rocket"></i>
+                </div>
+                <h4 class="font-bold text-lg mb-3">Execution</h4>
+                <p class="text-slate-500 text-sm leading-relaxed">We submit tailored applications across top platforms.</p>
             </div>
-            <div class="p-8 bg-white border border-slate-100 rounded-3xl relative overflow-hidden group">
-                <span class="absolute -right-4 -top-4 text-9xl font-black text-slate-50 opacity-5 group-hover:opacity-10 transition">4</span>
-                <h4 class="font-bold text-lg mb-3 relative">Interviews</h4>
-                <p class="text-slate-500 text-sm relative">You attend the interviews. We continue the process until you successfully land your offer.</p>
+            <div class="step-card p-8 bg-white rounded-3xl relative overflow-hidden group">
+                <div class="w-12 h-12 bg-slate-50 rounded-lg flex items-center justify-center text-gold mb-6 icon-box">
+                    <i class="fas fa-check-circle"></i>
+                </div>
+                <h4 class="font-bold text-lg mb-3">Placement</h4>
+                <p class="text-slate-500 text-sm leading-relaxed">You interview and sign. We support you until then.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Our Services (Enhanced Hover) -->
+    <section id="Our-Services" class="py-24 bg-white px-6">
+        <div class="container mx-auto text-center mb-20">
+            <h2 class="text-3xl md:text-4xl font-bold mb-4 text-slate-900">Premium <span class="text-gold">Services</span></h2>
+        </div>
+        <div class="container mx-auto grid md:grid-cols-3 gap-8">
+            <div class="glass-card p-10 rounded-[2.5rem] border-2 border-transparent hover:border-gold group">
+                <div class="w-16 h-16 bg-blue-50 text-blue-600 rounded-2xl flex items-center justify-center mb-8 group-hover:rotate-12 transition-transform">
+                    <i class="fas fa-users text-2xl"></i>
+                </div>
+                <h4 class="font-bold text-xl mb-4">Mock Interviews</h4>
+                <p class="text-slate-500 text-sm leading-relaxed">Practice with our expert panel to improve your interview skills.</p>
+            </div>
+            <div class="glass-card p-10 rounded-[2.5rem] border-2 border-transparent hover:border-gold group">
+                <div class="w-16 h-16 bg-purple-50 text-purple-600 rounded-2xl flex items-center justify-center mb-8 group-hover:rotate-12 transition-transform">
+                    <i class="fas fa-file-alt text-2xl"></i>
+                </div>
+                <h4 class="font-bold text-xl mb-4">ATS Resumes</h4>
+                <p class="text-slate-500 text-sm leading-relaxed">We build ATS-friendly resumes that passes through applicant tracking systems.</p>
+            </div>
+            <div class="glass-card p-10 rounded-[2.5rem] border-2 border-transparent hover:border-gold group">
+                <div class="w-16 h-16 bg-emerald-50 text-emerald-600 rounded-2xl flex items-center justify-center mb-8 group-hover:rotate-12 transition-transform">
+                    <i class="fas fa-briefcase text-2xl"></i>
+                </div>
+                <h4 class="font-bold text-xl mb-4">Direct Applications</h4>
+                <p class="text-slate-500 text-sm leading-relaxed">Direct entry into top-tier hiring pipelines through referrals.</p>
             </div>
         </div>
     </section>
 
     <!-- Testimonials -->
-    <section id="testimonials" class="py-32 overflow-hidden bg-white">
-        <div class="container mx-auto px-6 mb-20 text-center">
-            <h2 class="text-4xl font-bold mb-4 text-slate-900">Client <span class="text-gold">Testimonials</span></h2>
-            <p class="text-slate-500">Join 500+ professionals who upgraded their careers with us.</p>
+    <section id="testimonials" class="py-24 overflow-hidden bg-slate-50">
+        <div class="container mx-auto px-6 mb-16 text-center">
+            <h2 class="text-3xl md:text-4xl font-bold mb-4 text-slate-900">Recent <span class="text-gold">Success</span></h2>
         </div>
         
         <div class="testimonial-track gap-8 py-5">
             <div class="flex gap-8">
-                <!-- Card 1 -->
-                <div class="glass-card p-10 rounded-3xl w-[450px] shrink-0">
-                    <p class="text-slate-600 mb-8 italic leading-relaxed">"Career With Mahan helped me land my dream job in just 2 weeks! The team was professional and kept me updated throughout the process."</p>
+                <div class="glass-card p-10 rounded-3xl w-[320px] md:w-[450px] shrink-0">
+                    <p class="text-slate-600 mb-8 italic leading-relaxed text-sm">"Career With Mahan helped me land my dream job in just 2 weeks! The team was professional and kept me updated throughout."</p>
                     <div class="flex items-center gap-4">
                         <div class="w-12 h-12 rounded-full bg-slate-100 flex items-center justify-center font-bold text-navy">PS</div>
                         <div>
@@ -266,9 +323,8 @@
                         </div>
                     </div>
                 </div>
-                <!-- Card 2 -->
-                <div class="glass-card p-10 rounded-3xl w-[450px] shrink-0">
-                    <p class="text-slate-600 mb-8 italic leading-relaxed">"I was amazed at how quickly they found opportunities that matched my skills. The personalized approach made all the difference."</p>
+                <div class="glass-card p-10 rounded-3xl w-[320px] md:w-[450px] shrink-0">
+                    <p class="text-slate-600 mb-8 italic leading-relaxed text-sm">"Amazed at the speed. The personalized approach made all the difference in getting my current role."</p>
                     <div class="flex items-center gap-4">
                         <div class="w-12 h-12 rounded-full bg-slate-100 flex items-center justify-center font-bold text-navy">RV</div>
                         <div>
@@ -277,9 +333,11 @@
                         </div>
                     </div>
                 </div>
-                <!-- Card 3 -->
-                <div class="glass-card p-10 rounded-3xl w-[450px] shrink-0">
-                    <p class="text-slate-600 mb-8 italic leading-relaxed">"The team took all the stress out of job hunting. They handled everything professionally and I got multiple offers!"</p>
+            </div>
+            <!-- Duplicate for loop -->
+            <div class="flex gap-8">
+                <div class="glass-card p-10 rounded-3xl w-[320px] md:w-[450px] shrink-0">
+                    <p class="text-slate-600 mb-8 italic leading-relaxed text-sm">"The team took all the stress out of job hunting. Multiple offers in less than a month!"</p>
                     <div class="flex items-center gap-4">
                         <div class="w-12 h-12 rounded-full bg-slate-100 flex items-center justify-center font-bold text-navy">AP</div>
                         <div>
@@ -289,63 +347,19 @@
                     </div>
                 </div>
             </div>
-            <!-- Repeated for seamless loop -->
-            <div class="flex gap-8">
-                <div class="glass-card p-10 rounded-3xl w-[450px] shrink-0">
-                    <p class="text-slate-600 mb-8 italic leading-relaxed">"Best decision I made was using Career With Mahan. They understood exactly what I was looking for and delivered results fast."</p>
-                    <div class="flex items-center gap-4">
-                        <div class="w-12 h-12 rounded-full bg-slate-100 flex items-center justify-center font-bold text-navy">VS</div>
-                        <div>
-                            <div class="font-bold text-slate-900">Vikram Singh</div>
-                            <div class="text-xs text-gold font-bold uppercase tracking-wider">Product Designer</div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-    <!-- How It Works -->
-    <section id="how-it-works" class="py-32 bg-slate-50 px-6">
-        <div class="container mx-auto text-center mb-20">
-            <h2 class="text-4xl font-bold mb-4 text-slate-900">Our<span class="text-gold">Services</span></h2>
-            <p class="text-slate-500 max-w-2xl mx-auto">Here are the detailed view of our services.</p>
-        </div>
-        <div class="container mx-auto grid md:grid-cols-4 gap-4">
-            <div class="p-8 bg-white border border-slate-100 rounded-3xl relative overflow-hidden group">
-                <span class="absolute -right-4 -top-4 text-9xl font-black text-slate-50 opacity-5 group-hover:opacity-10 transition">1</span>
-                <h4 class="font-bold text-lg mb-3 relative">Mock Interviews</h4>
-                <p class="text-slate-500 text-sm relative">Practice with our expert panel to improve your interview skills.</p>
-            </div>
-            <div class="p-8 bg-white border border-slate-100 rounded-3xl relative overflow-hidden group">
-                <span class="absolute -right-4 -top-4 text-9xl font-black text-slate-50 opacity-5 group-hover:opacity-10 transition">2</span>
-                <h4 class="font-bold text-lg mb-3 relative">ATS Resume Building</h4>
-                <p class="text-slate-500 text-sm relative">We build ATS-friendly resumes that pass through applicant tracking systems.</p>
-            </div>
-            <div class="p-8 bg-white border border-slate-100 rounded-3xl relative overflow-hidden group">
-                <span class="absolute -right-4 -top-4 text-9xl font-black text-slate-50 opacity-5 group-hover:opacity-10 transition">3</span>
-                <h4 class="font-bold text-lg mb-3 relative">direct clients Applications</h4>
-                <p class="text-slate-500 text-sm relative"></p>
-            </div>
-            <div class="p-8 bg-white border border-slate-100 rounded-3xl relative overflow-hidden group">
-                <span class="absolute -right-4 -top-4 text-9xl font-black text-slate-50 opacity-5 group-hover:opacity-10 transition">4</span>
-                <h4 class="font-bold text-lg mb-3 relative">Interviews</h4>
-                <p class="text-slate-500 text-sm relative">You attend the interviews. We continue the process until you successfully land your offer.</p>
-            </div>
         </div>
     </section>
 
     <!-- CTA Section -->
-    <section class="py-40 px-6 bg-slate-50">
+    <section class="py-24 md:py-32 px-6 bg-white">
         <div class="container mx-auto max-w-5xl">
-            <div class="bg-navy p-16 rounded-[40px] text-center relative overflow-hidden">
-                <div class="absolute top-0 right-0 w-64 h-64 bg-amber-500/10 rounded-full -mr-32 -mt-32"></div>
-                <h2 class="text-4xl md:text-6xl font-bold mb-8 text-white tracking-tight">Ready to transform your <br><span class="text-gold">job search?</span></h2>
-                <p class="text-slate-400 text-lg mb-12 max-w-xl mx-auto">Registration is 100% free. Our experts respond instantly to help you navigate your career transition.</p>
+            <div class="bg-navy p-10 md:p-16 rounded-[40px] text-center relative overflow-hidden">
+                <h2 class="text-3xl md:text-5xl font-bold mb-8 text-white tracking-tight">Ready to <span class="text-gold">Transform</span> Your Search?</h2>
                 <div class="flex flex-col sm:flex-row gap-5 justify-center">
-                    <a href="https://forms.gle/MSpcJHs5vb8UkfJ1A" target="_blank" class="btn-gold px-12 py-5 rounded-full font-bold text-lg uppercase tracking-wider">
+                    <a href="https://forms.gle/MSpcJHs5vb8UkfJ1A" target="_blank" class="btn-gold px-12 py-4 rounded-full font-bold text-lg">
                         Apply Now
                     </a>
-                    <a href="https://api.whatsapp.com/send?phone=9550079348&text=I'd%20like%20to%20start%20my%20career%20journey%20with%20Mahan." target="_blank" class="bg-slate-800 px-12 py-5 rounded-full font-bold text-lg text-white hover:bg-slate-700 transition flex items-center justify-center gap-3">
+                    <a href="https://api.whatsapp.com/send?phone=9550079348" target="_blank" class="bg-slate-800 px-12 py-4 rounded-full font-bold text-lg text-white flex items-center justify-center gap-3">
                         <i class="fab fa-whatsapp text-green-400"></i> Expert Chat
                     </a>
                 </div>
@@ -354,41 +368,49 @@
     </section>
 
     <!-- Footer -->
-    <footer class="py-20 bg-white border-t border-slate-100">
+    <footer class="py-16 bg-white border-t border-slate-100">
         <div class="container mx-auto px-6 grid md:grid-cols-4 gap-12">
-            <div class="col-span-2">
-                <!-- FOOTER LOGO: Replace src with your logo file -->
-                <img src="img\log.jpg.jpeg" alt="Career With Mahan" class="h-12 w-auto mb-6">
-                <p class="text-slate-500 max-w-sm mb-8 leading-relaxed">Dedicated to accelerating career growth through expert human-led application strategies and industry insights.</p>
+            <div class="col-span-1">
+                <img src="img\log.jpg.jpeg" alt="Logo" class="logo-main mb-6">
+                <p class="text-slate-500 text-sm leading-relaxed">Accelerating careers through expert application strategies.</p>
             </div>
             <div>
                 <h5 class="font-bold text-navy mb-6 uppercase tracking-widest text-xs">Resources</h5>
                 <ul class="space-y-4 text-slate-500 text-sm">
-                    <li><a href="#features" class="hover:text-gold transition">Our Features</a></li>
-                    <li><a href="#how-it-works" class="hover:text-gold transition">Process Flow</a></li>
-                    <li><a href="https://api.whatsapp.com/send?phone=919603230081" class="hover:text-gold transition">24/7 Support</a></li>
+                    <li><a href="#features" class="hover:text-gold transition">Features</a></li>
+                    <li><a href="#how-it-works" class="hover:text-gold transition">Process</a></li>
                 </ul>
             </div>
             <div>
                 <h5 class="font-bold text-navy mb-6 uppercase tracking-widest text-xs">Legal</h5>
                 <ul class="space-y-4 text-slate-500 text-sm">
                     <li><a href="#" class="hover:text-gold transition">Privacy Policy</a></li>
-                    <li><a href="#" class="hover:text-gold transition">Terms of Service</a></li>
+                    <li><a href="#" class="hover:text-gold transition">Terms</a></li>
                 </ul>
             </div>
+            <div>
+                <h5 class="font-bold text-navy mb-6 uppercase tracking-widest text-xs">Connect</h5>
+                <div class="flex gap-4">
+                    <a href="https://www.instagram.com/careerwithmahan" target="_blank" class="w-10 h-10 rounded-full bg-slate-50 flex items-center justify-center text-slate-400 hover:text-gold border border-slate-100 transition">
+                        <i class="fab fa-instagram"></i>
+                    </a>
+                    <a href="https://www.linkedin.com/company/career-with-mahan/" target="_blank" class="w-10 h-10 rounded-full bg-slate-50 flex items-center justify-center text-slate-400 hover:text-gold border border-slate-100 transition">
+                        <i class="fab fa-linkedin-in"></i>
+                    </a>
+                </div>
+            </div>
         </div>
-        <div class="container mx-auto px-6 mt-20 pt-10 border-t border-slate-50 text-center text-slate-400 text-xs font-medium">
-            © 2024 CAREER WITH MAHAN. ALL RIGHTS RESERVED.
+        <div class="container mx-auto px-6 mt-16 pt-10 border-t border-slate-50 text-center text-slate-400 text-xs">
+            © 2024 CAREER WITH MAHAN.
         </div>
     </footer>
 
     <!-- Floating WhatsApp -->
-    <a href="https://api.whatsapp.com/send?phone=919603230081&text=Hello!%20I%20am%20interested%20in%20your%20job%20application%20services." class="whatsapp-float" target="_blank">
+    <a href="https://api.whatsapp.com/send?phone=9550079348" class="whatsapp-float" target="_blank">
         <i class="fab fa-whatsapp"></i>
     </a>
 
     <script>
-        // Number Rolling Animation
         const countTo = (element) => {
             const target = parseInt(element.getAttribute('data-target'));
             let current = 0;
